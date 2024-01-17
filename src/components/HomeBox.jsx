@@ -30,7 +30,6 @@ export default function HomePage() {
       );
     }
 
-    console.log(isConfirmed, hasSecret);
     if (textValue && isConfirmed) {
       addSecretAPI(user?.uid, textValue).then(() => {
         toast.success("Secret Added Successfully");
