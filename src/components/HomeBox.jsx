@@ -66,6 +66,7 @@ export default function HomePage() {
         component={"div"}
         sx={{
           display: "flex",
+          alignItems: "center",
           justifyContent: "space-between",
         }}
       >
@@ -73,11 +74,28 @@ export default function HomePage() {
         <Box component={"div"} sx={{ display: "flex", gap: 2 }}>
           <Link
             onClick={() => dispatch(changeMode())}
-            sx={{ cursor: "pointer" }}
+            sx={{
+              cursor: "pointer",
+              padding: "4px 24px",
+              borderRadius: "20px",
+              bgcolor: "#d2d2d2",
+              color: "black",
+              textDecoration: "none",
+            }}
           >
             Theme
           </Link>
-          <Link component={ReactRouterLink} to="/signout">
+          <Link
+            component={ReactRouterLink}
+            to="/signout"
+            sx={{
+              padding: "4px 24px",
+              borderRadius: "20px",
+              bgcolor: "#e0e0e0",
+              color: "black",
+              textDecoration: "none",
+            }}
+          >
             SignOut
           </Link>
         </Box>
