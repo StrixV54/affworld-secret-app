@@ -122,7 +122,15 @@ export default function SignIn() {
           >
             Sign In
           </Button>
-          <Grid container mt={3}>
+          <Grid
+            container
+            mt={3}
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              gap: 2,
+            }}
+          >
             <Grid item xs>
               <Link to="/" component={ReactRouterLink}>
                 Forgot password?

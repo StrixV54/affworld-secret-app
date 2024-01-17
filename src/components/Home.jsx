@@ -8,7 +8,7 @@ import Loading from "../pages/LoadingPage";
 import { changeMode } from "../redux/themeSlice";
 import { useTheme } from "@emotion/react";
 
-export default function HomePage() {
+export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const theme = useTheme();
@@ -66,11 +66,19 @@ export default function HomePage() {
         sx={{
           display: "flex",
           alignItems: "center",
+          flexDirection: { xs: "column-reverse", sm: "row" },
+          gap: 4,
           justifyContent: "space-between",
         }}
       >
-        <Typography component={"h4"}>Hi, {user?.displayName}</Typography>
-        <Box component={"div"} sx={{ display: "flex", gap: 2 }}>
+        <Typography component={"h4"} alignSelf={"flex-start"}>
+          Hi, {user?.displayName}
+        </Typography>
+        <Box
+          component={"div"}
+          sx={{ display: "flex", gap: 2 }}
+          alignSelf={"flex-end"}
+        >
           <Link
             onClick={() => dispatch(changeMode())}
             sx={{
@@ -80,6 +88,7 @@ export default function HomePage() {
               bgcolor: "#d2d2d2",
               color: "black",
               textDecoration: "none",
+              fontSize: "0.8rem",
             }}
           >
             Theme
@@ -93,9 +102,10 @@ export default function HomePage() {
               bgcolor: "#e0e0e0",
               color: "black",
               textDecoration: "none",
+              fontSize: "0.8rem",
             }}
           >
-            SignOut
+            Sign Out
           </Link>
         </Box>
       </Box>
@@ -126,7 +136,6 @@ export default function HomePage() {
           id="secret"
           name="secret"
           autoComplete="secret"
-          autoFocus
         />
         <Button variant="contained" type="submit">
           Submit
@@ -135,7 +144,7 @@ export default function HomePage() {
       <Typography component={"h6"} mt={4}>
         Uploaded Secrets:
       </Typography>
-      <Grid container sx={{ gap: 2 }}>
+      <Grid container sx={{ gap: 2, pb: 2 }}>
         {secretsList?.length > 0 &&
           secretsList.map((item, idx) => (
             <Grid

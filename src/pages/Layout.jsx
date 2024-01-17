@@ -5,7 +5,7 @@ import Loading from "./LoadingPage";
 import { Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import React from "react";
-import HomePage from "../components/HomeBox";
+import Home from "../components/Home";
 import { getUserDetailsAPI } from "../firebase/api";
 import { userIsAuthentic } from "../redux/authSlice";
 
@@ -43,7 +43,7 @@ export default function HomeLayout() {
         overflow: "scroll",
       }}
     >
-      <HomePage />
+      <Home />
     </Box>
   );
 }
